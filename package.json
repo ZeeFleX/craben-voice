@@ -1,0 +1,14 @@
+{
+  "name": "crabenvoice",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Максимально простой голосовой чат для друзей: открыл страницу — и говоришь",
+  "main": "server.js",
+  "scripts": {
+    "start": "node --env-file-if-exists=.env server.js"
+  },
+  "dependencies": {
+    "express": "^4.21.2",
+    "socket.io": "^4.8.1"
+  }
+}

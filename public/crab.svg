@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <g fill="#e62e2e">
+    <!-- левая клешня -->
+    <path d="M13.5 9.9A7 7 0 1 0 13.5 22.1L10 16Z"/>
+    <!-- правая клешня -->
+    <path d="M50.5 9.9A7 7 0 1 1 50.5 22.1L54 16Z"/>
+    <!-- тело -->
+    <ellipse cx="32" cy="42" rx="13" ry="9"/>
+    <!-- глаза -->
+    <circle cx="27" cy="26" r="3"/>
+    <circle cx="37" cy="26" r="3"/>
+  </g>
+  <g stroke="#e62e2e" stroke-width="3" stroke-linecap="round" fill="none">
+    <!-- стебельки глаз -->
+    <path d="M27 33v-4M37 33v-4"/>
+    <!-- руки -->
+    <path d="M20 36L13 24M44 36l7-12"/>
+    <!-- ноги -->
+    <path d="M19 43l-9 2M19 47l-8 5M45 43l9 2M45 47l8 5"/>
+  </g>
+</svg>

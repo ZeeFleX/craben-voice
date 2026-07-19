@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CrabenVoice</title>
+  <link rel="icon" href="/crab.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="card">
+    <img src="/crab.svg" alt="Краб" class="logo" />
+    <h1>CrabenVoice</h1>
+    <p id="status" class="status">Подключаемся…</p>
+    <p id="count" class="count"></p>
+    <button id="mute" class="mute" disabled>🎙️ Микрофон вкл.</button>
+    <ul id="users" class="users"></ul>
+    <p class="hint">Открой эту же страницу у друзей — и просто говорите.</p>
+  </main>
+
+  <!-- Модалка с вопросом имени, показывается один раз, имя хранится в localStorage -->
+  <div id="name-modal" class="modal">
+    <form id="name-form" class="modal-card">
+      <img src="/crab.svg" alt="Краб" class="logo small" />
+      <h2>Здравствуй, краб,<br />как тебя зовут?</h2>
+      <input id="name-input" maxlength="24" placeholder="Краб" autocomplete="off" />
+      <button type="submit">Погнали</button>
+    </form>
+  </div>
+
+  <!-- Сюда скрипт добавляет невидимые <audio> для голосов собеседников -->
+  <div id="audios"></div>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="client.js"></script>
+</body>
+</html>
