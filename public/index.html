@@ -14,6 +14,20 @@
     <p id="status" class="status">Подключаемся…</p>
     <p id="count" class="count"></p>
     <button id="mute" class="mute" disabled>🎙️ Микрофон вкл.</button>
+    <div class="settings">
+      <label class="field">
+        <span>Микрофон</span>
+        <select id="mic-select"></select>
+      </label>
+      <label class="check">
+        <input type="checkbox" id="noise-toggle" checked />
+        Шумоподавление (RNNoise)
+      </label>
+      <label class="check">
+        <input type="checkbox" id="ptt-toggle" />
+        Push-to-talk (пробел)
+      </label>
+    </div>
     <ul id="users" class="users"></ul>
     <p class="hint">Открой эту же страницу у друзей — и просто говорите.</p>
   </main>
@@ -27,9 +41,6 @@
       <button type="submit">Погнали</button>
     </form>
   </div>
-
-  <!-- Сюда скрипт добавляет невидимые <audio> для голосов собеседников -->
-  <div id="audios"></div>
 
   <script src="/socket.io/socket.io.js"></script>
   <script src="client.js"></script>

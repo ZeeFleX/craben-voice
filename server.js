@@ -44,9 +44,13 @@ app.get('/ice-config', (req, res) => {
 });
 
 const names = new Map(); // socket.id -> имя краба
+const mutedBy = new Map(); // socket.id -> bool, чтобы новички сразу видели замьюченных
 
 function sendRoster() {
-  io.emit('roster', [...names.entries()].map(([id, name]) => ({ id, name })));
+  io.emit(
+    'roster',
+    [...names.entries()].map(([id, name]) => ({ id, name, muted: !!mutedBy.get(id) }))
+  );
 }
 
 io.on('connection', (socket) => {
@@ -62,8 +66,15 @@ io.on('connection', (socket) => {
     io.to(to).emit('signal', { from: socket.id, data });
   });
 
+  // Состояние участника (мьют, индикатор речи) — рассылаем всем остальным
+  socket.on('state', (state) => {
+    if (typeof state.muted === 'boolean') mutedBy.set(socket.id, state.muted);
+    socket.broadcast.emit('user-state', { id: socket.id, ...state });
+  });
+
   socket.on('disconnect', () => {
     names.delete(socket.id);
+    mutedBy.delete(socket.id);
     socket.broadcast.emit('peer-left', socket.id);
     sendRoster();
   });

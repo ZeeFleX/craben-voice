@@ -97,6 +97,57 @@ h1 {
   color: #b0a8ad;
 }
 
+/* --- Настройки --- */
+
+.settings {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  text-align: left;
+  background: #1b1b21;
+  border: 1px solid #2a2a32;
+  border-radius: 12px;
+  padding: 14px 16px;
+}
+
+.settings .field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 0.9rem;
+  color: #b8b0b5;
+}
+
+.settings select {
+  width: 100%;
+  padding: 8px 10px;
+  font-size: 0.95rem;
+  color: #ece8e8;
+  background: #0e0e12;
+  border: 1px solid #3a3a42;
+  border-radius: 8px;
+  outline: none;
+}
+
+.settings select:focus {
+  border-color: #e62e2e;
+}
+
+.settings .check {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.95rem;
+  color: #d8d2d6;
+  cursor: pointer;
+}
+
+.settings .check input {
+  accent-color: #e62e2e;
+  cursor: pointer;
+}
+
 /* --- Список участников --- */
 
 .users {
@@ -116,6 +167,20 @@ h1 {
   border: 1px solid #2a2a32;
   border-radius: 12px;
   padding: 9px 14px;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+.users li.speaking {
+  border-color: #e62e2e;
+  box-shadow: 0 0 12px rgba(230, 46, 46, 0.35);
+}
+
+.users li.speaking .user-icon {
+  filter: drop-shadow(0 0 6px rgba(230, 46, 46, 0.8));
+}
+
+.mute-icon {
+  font-size: 0.9rem;
 }
 
 .user-icon {
